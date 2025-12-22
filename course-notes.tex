@@ -10,10 +10,14 @@
 \usepackage{xcolor}
 \usepackage{Shorthands}
 \usepackage{upgreek}
-\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty 
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty
+\usepackage{caption}
+\usepackage{xcolor}
+
+\captionsetup{font=footnotesize, margin=1cm} 
 
 \title{STAT 9912: Acceleration, Greed and Hedging in Optimization} 
-\author{Taught by Dr. Jason Altschuler \\ Notes written by Faraz Rahman}
+\author{Taught by Dr. Jason Altschuler \\ Notes written by Faraz Radhman}
 \date{}
 
 \begin{document}
@@ -169,8 +173,37 @@ Note the fact: $1-\delta =$ \TODO{recall the log trick here and write it}
 
 In the above section, we derived optimal rates for GD when we can pick a single fixed step-size. The natural follow-up is to ask if we can do better with non-constant step-sizes. 
 
-\subsubsection{2 Step Schedules}
-For simplicity, we should start by computing an optimal schedule for $n=2$ steps. The problem will take a familiar form,
+\subsubsection[Warmup: Spectral Annihilation]{Warmup: Spectral Annihilation\footnote{Not included in original lectures.}}
+
+We spent some time deriving the optimal constant step-size for worst-case qudaratic problems with a given mininum and maximum eigenvalue. 
+Before continuing, let's build understanding about what we can do if we have access to the entire eigen-spectrum of our problem.
+
+In particular, let's start with the 1d-case with \[f(x) = \frac{1}{2}Ax^2\] The gradient $\nabla f(x) = Ax$, so after one step of gradient descent with step-size $\alpha$, the next iterate is 
+\[x^+ = x - \alpha Ax\]
+You'll notice that simply setting $\alpha = \frac{1}{A}$ yields \[x^+ = x - \frac{A}{A} x = 0 = x^*\]
+
+Allowing us to solve in one iteration. Now consider that we have a 2d problem.
+
+Consider diagonal $A \in \mathbb R^{2\times 2}$  and \[f(\bx) = \frac{1}{2}\bx^\top \bA\bx = \frac{1}{2}\p{A_{11}x_1^2 + A_{22}x_2^2 }\] The gradient $\nabla f(\bx) = \bA\bx$, so after one step of gradient descent with step-size $\alpha$, the next iterate is 
+\[x^+_1 = x - \alpha A_{11} x \]
+\[x^+_2 = x - \alpha A_{22} x \]
+Like the 1d case, we can simply select the diagonal elements (eigen-values for general matrices) to be our reciprocal step-sizes to arrive knock the corresponding entry right to the optimum $\bx^* = \zeros$. Let $\alpha_1 = \frac{1}{A_{11}}$, $\alpha_2 = \frac{1}{A_{22}}$, then after one step we knock out $x_1$
+
+\[x^{++}_1 = x^+_1 - \frac{A_{11}}{A_{11}} x_1 = 0 \]
+\[x^{++}_2 = x^+_2 - \frac{A_{22}}{A_{11}} x_2 = \p{1-\frac{A_{22}}{A_{11}}} x_2 \]
+
+And after the second step we get knock $x_2$.
+\[x^+_1 = x_1 - \frac{1}{A_{22}} \cdot 0 = 0 \]
+\[x^+_2 = x^+_2 - \frac{A_{22}}{A_{22}} x^+_2 = 0 \]
+
+This logic extends to $d$-dimensional problems and non-diagonal problems where we arrive at the optimum in $d$-steps. An important takeaway here is that \textbf{the order of step-sizes do not matter}. Because, the eigen-spectrum of a quadratic function is indentical at all points, the step with step-size reciprocal to the $i$th eigenvalue is will annihilate the $i$th entry \textit{no matter where it currently is in the domain} i.e. no matter where the previous descent steps went. This is a nice property of quadratic functions but it does not generalize to quadratics, we will see this a common theme that shows up in later algorithms.
+
+
+
+
+\subsubsection{Optimal 2-Step Schedules}
+
+With the above insight, we can return to the case where we only assume bounds $0<m\leq \lambda_i\leq M$ on the eigenvalues. For simplicity, we should start by computing an optimal schedule for $n=2$ steps. The problem will take a familiar form,
 \[\min_{\alpha, \beta}\max_{f, \bx_0\neq \bx^*} \frac{\norm{\bx_2-\bx^*}}{\norm{\bx_0-\bx^*}}\]
 where $\alpha, \beta$ are our step-sizes.
 
@@ -238,24 +271,54 @@ The general problem $n\geq 2$ steps with step sizes given by $\cb{\alpha_i}_{i\i
 All of the above steps may be repeated to arrive at the form \[\min_{p\in\hat \calP_n }\max_{m\leq \lambda \leq M} 
 \abs{p(\lambda) }\]
 
-This problem is closely related the the Chebyshev Polynomials and the solution the $n$-step problem will turn out to be exactly the $n$th Chebyshev Polynomials $T_n$ (modulo some affine transforms on the input/output). The next section will dive deeper into what the Chebyshev Polynomials, but we will use them here without exposition to analyze some properties of multi-step schedules.
+This problem is closely related the the Chebyshev Polynomials and the solution the $n$-step problem will turn out to be exactly the $n$th Chebyshev Polynomials $T_n$ (modulo some affine transforms on the input/output). The next section will dive deeper into what the Chebyshev Polynomials, but for now we will just provide a graph and some rough intuition for why they are the solution.
+
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{static/Chebyshev-Polynomials.png}\\
+    Chebyshev Polynomials $T_n(x)$ for degrees $n=1$ through $n=5$ on $[-1, 1]$.
+\end{center}
+
+
+You can see in the above figure \TODO{label the figures} that the extrema of the Chebyshev polynomials lie in $\{-1, 1\}$. It should be intuitive how this corresponds to the absolute value of the polynomial all sharing a common maxima.
 
 % Optimal polynomial $p^*$ is degree 2 Chebyshev poly with $\cb{\alpha^{-1}, \beta^{-1}} = \cb{\frac{M+m}{2} \pm \frac{M-m}{2\sqrt{2}}}$.
-
 
 % We can repeat all of the above arguments and find that we will get the picking $n$ steps will in general be better than $<n$ steps and the optimal polynomial will in general be a degree $n$ polynomial. Before talking more specifically about Chebyshev polynomials we talk about $p_n^*$ a little more.
 
 % Chebyshev polynomials are defined on $[-1, 1]$ but we are interested in the range of $[m, M]$. Let's assume $L(\lambda)$ is a rescale that takes us to $[-1, 1]$ then we can talk in the language of the Chebyshev polynomials themselves. $T_n$ is the degree $n$ Chebyshev polynomial.
 \TODO{add a one line exposition of Chebyshev Polynomials and $L$}
 
-The solution to the minimax is given by \[p^*_n = \frac{T_n(L(\lambda))}{T_n(L(0))}\] The maximum value that $T_n$ takes on is $1$ so the value of the minimax is \[R^*_n = \frac{1}{T_n(L(0))}\]
+Take for granted that the solution to the minimax is 
+\begin{equation}\label{eq:chebyshev-opt}
+    p^*_n = \frac{T_n(L(\lambda))}{T_n(L(0))}
+\end{equation}
+where $L$ affinely maps the eigenvalue range $[m, M] \to [-1, 1]$ which is the natural domain of the Chebyshev polynomial.\footnote{This works out to be $L(\lambda) = \frac{\lambda - m}{M-m} \cdot 2 - 1$. For $\lambda=0$ we get $L(0) = \frac{-2m}{M-m}-1 = \frac{- M -m}{M-m} = \frac{m+M}{m-M} = \frac{1+\kappa}{1-\kappa}$}
 
-We get that \[R_n = \frac{1}{T_n(L(0))} = \dots= \p{\frac{\sqrt{k}-1}{\sqrt{k} + 1}}^n\]
-$\Rightarrow$ \# iterations to get to $R_n \leq \eps$ is $n= \Theta\p{\sqrt{k} \log(1/\eps)}$ 
+The maximum value that $T_n$ takes on is $1$ so maximizing over $\lambda$ we get \[R^*_n = \frac{1}{T_n(L(0))}\]
 
 
+We can understand the limiting optimal rate by taking the large $n$ limit:
 
-\textcolor{red}{\textsc{// TODO: write out the justification for this using big n limit for the ``k" term.}}
+
+We get that
+\begin{align*}
+    \lim_{n\rightarrow \infty} R^*_n &= \lim_{n\rightarrow \infty} \frac{1}{T_n(L(0))} \\
+    &= \lim_{n\rightarrow \infty} \frac{2}{\p{\frac{\sqrt \kappa - 1}{\sqrt \kappa + 1}}^n + \p{\frac{\sqrt \kappa - 1}{\sqrt \kappa + 1}}^{-n} } \\
+    &= 2 \left(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa} + 1}\right)^n \\
+    &= 2\p{1 - \frac{2}{\sqrt{\kappa}+1}}^n
+\end{align*}
+
+The second line follows from the first definition of the Chebyshev polynomials which shows up in the following section. For now it suffices to take this as true.
+
+Taking the geometric mean over $n$ steps and dropping constants we see that the final optimal rate is  
+\[\calO\p{\frac{1}{\sqrt \kappa}}\]
+
+which is the famous ``accelerated'' rate for gradient descent.
+
+
+Similarly we can get an interation complexity $R_n \leq \eps$ is $n= \Theta\p{\sqrt{k} \log(1/\eps)}$ 
+
+\TODO{write out the justification for this using big n limit for the ``k" term.}
 
 
 
@@ -281,34 +344,69 @@ Some more resources (Mason \& Handscomb, Riulin, Trefethen)
 \item \textbf{Trigonometric:} \[T_n(z) = \cos(n \cdot \arccos(z)), \quad z\in[-1, 1]\]
 \item \textbf{Roots:} \[\cb{\cos\p{\frac{2t+1}{2n}\pi}}_{t=0 \dots n-1}\]
 	\begin{itemize}
-	\item $\cb{\frac{2t+1}{2n}}_{t=0\dots n-1}$ are pretty angles spread uniformly around the unit circle. So applying $\cos$ can be thought of as projecting the points from the unit circle onto the x-axis. 
-	\item Here is a nice picture for the distribution of roots (uniformly) on a circle then projected on to the x-axis. it is called the arcsine distribution and will come up in random step-size schedules
-	\item \includegraphics[width=400pt]{static/Pasted image 20251027222540.png}
+	\item $\cb{\frac{2t+1}{2n}\pi}_{t=0\dots n-1}$ are angles spread uniformly around the unit circle. So applying $\cos$ can be thought of as projecting the points from the unit circle onto the x-axis. 
+	\item Figure \ref{fig:chebyshev-roots-arcsine} is a nice picture for the distribution of roots (uniformly) on a circle then projected on to the x-axis. it is called the arcsine distribution and will come up in random step-size schedules
 	\end{itemize}
-\item \textbf{3-term recurrence} \[T_{n+1}=2zT_n(z) - T_{n-1}(z), \quad T_0(z)=1, T_1(z) = z\]
+\item \textbf{3-term recurrence} \[T_{n+1}(z)=2zT_n(z) - T_{n-1}(z), \quad T_0(z)=1, T_1(z) = z\]
 \item \textbf{Extremal:} \[T_n(z)/2^{n-1} = \argmin_{p \text{ def } n, p \text{ monic}} \max_{z \in [-1, 1]} \abs{p(z)}\]
 	\begin{itemize}
 	\item This is why they showed up in our step-size derivation above.
 	\end{itemize}
 \end{itemize}
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=200pt]{static/Pasted image 20251027222540.png}
+    \caption{Distribution of roots of Chebyshev polynomials projected onto the x-axis (arcsine distribution \TODO{fix formatting}).}
+    \label{fig:chebyshev-roots-arcsine}
+\end{figure}
 
 A core message to takeaway here is that there are many equivalent ways to derive step-size schedules yielding accelerated descent \textit{and} they all correspond to some way to define the Chebyshev polynomials. This duality follow directly from the relationship between inverse roots and step-sizes. 
 
 \subsubsection{Polyak's Heavy Ball}
 
-To begin we can look at the Polyak Heavy Ball Method / Momentum and the 3-term recurrence.
+To begin we can look at the Polyak Heavy Ball Method which introduced the notion of momentum to first-order optimization. Polyak's Heavy Ball can be dervied via the 3-term recurrence. 
 
-To get step size for the next step we want, we can grab expand the contraction matrix polynomial using the recursive definition above. If we substitute in $\nabla f (\bx_{n})$ when possible we see that we can recover a momentum looking update rule which uses \textit{both} the current gradient and the previous update to guide the next step: see the simplified form boxed below. The constants $c_1, c_2$ and $c_3$ are left undefined to avoid unnecessary arithmetic.
+Recall that the 3-term recurrence was 
+\[T_{n+1}(z)=2zT_n(z) - T_{n-1}(z)\]
+
+We need to shift / rescale in order to apply this recurrence to $p_{n+1}(\bH)$, our optimal contraction polynomials. We defined $L(\lambda) = a \lambda + b$ to handle scaling the input \footnote{for some values $a, b$ (we will only be concerned with the functional form for now)}. The RHS of the recurrence can then be expressed in terms of lambda $2(a\lambda + b)T_n(L(\lambda)) - T_{n-1}(L(\lambda))$, but we also need to rescale the out put as in (\ref{eq:chebyshev-opt}) so taking this into accourn the optimal polynomial recurrence is 
+\[p_{n+1}(\lambda) = \p{\p{c_1+c_2\lambda}p_{n}(\lambda) - c_3 p_{n-1}(\lambda)}\]
+for some values of $c_1, c_2, c_3$
+
+
+Next, we want to go from this recurrence into something that we can implement. Let's start with some wishful thinking: for $n+1$ steps assume we contract according to $p_{n+1}(\bH)$ which is optimal, then write the contraction via the recurrence.
 \begin{align*}
 \bx_{n+1} - \bx^* &= p_{n+1}(\bH)(\bx_0-\bx^*) \\
-&= \p{\p{c_1+c_2\bH}p_{n}(\bH) - c_3 p_{n-1}(\bH)}(\bx_0-\bx^*)
+&= \p{\p{c_1+c_2\bH}p_{n}(\bH) - c_3 p_{n-1}(\bH)}(\bx_0-\bx^*) \\
+&= \p{c_1+c_2\bH}\underbrace{p_{n}(\bH)(\bx_0-\bx^*)}_{=\, \p{\bx_n - \bx^*}} - c_3\underbrace{p_{n-1}(\bH)(\bx_0-\bx^*)}_{=\, \p{\bx_{n-1} - \bx^*}}
 \end{align*}
-\includegraphics{static/Screenshot 2025-10-27 at 8.58.00 PM.png}
-But if you plug 3-term recurrence back into our $\bx_{n+1} -\bx^*= p_{n+1}(\bx_0-\bx^*)$ 
+
+Where the second line points out that the recurrence allows us to express the optimal $n+1$ step iterate in terms of our $n$ and $n-1$ step iterates. Further rearranging gives.
+\begin{align*}
+    \bx_{n+1} - \bx^* &=  c_1\p{\bx_n - \bx^*} +c_2 \underbrace{\bH \p{\bx_n - \bx^*}}_{=\,\nabla f(\bx_n)} - c_3\p{\bx_{n-1} - \bx^*}\\
+    &= c_1\bx_n + c'_3\bx_{n-1} + c_2 \nabla f(\bx_n) - \p{c'_3 + c_1}\bx^* \\
+\end{align*}
+The first line identifies the second term as the gradient for the quadratic function. In rearranging we substitute $c'_3=-c_3$ for clarity. If we constraint $c_1 + c'_3 = 1$ we can add $\bx^*$ to both sides to get
+\begin{align*}
+    \bx_{n+1} &=  c_1\bx_n + c'_3\bx_{n-1} + c_2 \nabla f(\bx_n)\\
+    &= \bx_n  - c'_3\underbrace{\p{\bx_n- \bx_{n-1}}}_{\text{momentum}} + c_2 \nabla f(\bx_n)
+\end{align*}
+
+The final step rearranges the update rule in terms of a ``momentum'' term. Inductively, if we assumed that $\bx_n, \bx_{n-1}$ were the optimal iterates, then by construction it follows that $\bx_{n+1}$ is optimal up to $n+1$ step step-size schedule on vanilla gradient descent, thus as we take many updates $n\rightarrow \infty$ the algorithm achieves the accelerated rate.
+
+If we were to have carried valyes for the constants throughout, we would have arrived at
+\[
+c'_3 = \p{\frac{2}{\sqrt{M}+\sqrt{m}}}^2, \quad c_2 =  \p{\frac{\sqrt{M}-\sqrt{m}}{\sqrt{M}+\sqrt{m}}}^2
+\]
 
 
-Discussion of Conjugate gradients that I kind of missed, but conjugate gradients are based on orthogonal polynomials
+
+The relationship between momentum and step-size parameters $c'_3$ and $c_2$ is worth its own section. Fabian Pedregosa's 2023 ICML Blog \href{https://iclr-blogposts.github.io/2023/blog/2023/hitchhikers-momentum/}{\textit{A Hitchhiker's Guide to Momentum}} may be of interest for further reading and includes derivation of the regions for which $(c'_3, c_2)$ achieve the accelerated rate.
+
+
+
+\TODO{Discussion of Conjugate gradients that I kind of missed, but conjugate gradients are based on orthogonal polynomials}
 
 \subsubsection{Random Stepsizes via Potential Theory}
 
@@ -377,5 +475,133 @@ There is some connection to Green's function that I should learn about: fundamen
 
 Game \[ Rate = \inf_{\gamma} \sup_{\lambda \in [m, M]} \E_{\beta \sim\gamma} \log\abs{1-\beta^{-1}\lambda}\]
 To make the game more symmetric we can lift the function player into distribution over $\lambda$s giving \[\inf_{\gamma\in \calP(E)} \sup_{\rho \in \calP(E)} \E_{\beta\sim\gamma, \lambda\sim\rho} \log\abs{1-\beta^{-1}\lambda}\]
+
+\section{Performance Estimation Problem (PEP)}
+
+Can we automatically figure out worse-case functions 
+
+\textbf{Performance Estimation Problem for Gradient Descent:}
+
+
+Consider the worst-case function $f$ which is $L$-smooth and $\mu$-strongly convex. Given initialization $x_0$, first iterate $x_1$, and the minimizer $x^*$, the max performance estimation problem for the normalized residual after one step of gradient descent is:
+
+
+The primal for these problems is the worse case function a algorithm performs.
+The dual is the best worst-case bound you can get from an algorithm.
+
+\TODO{Fix this cursor generated}
+\begin{align*}
+    R_1(\mu) = \max_{f,\, x_0,\, x_1,\, x^*} \quad & \frac{\norm{x_1 - x^*}^2}{\norm{x_0 - x^*}^2} \\
+    \text{subject to} \quad & f \text{ is } L\text{-smooth}, \\
+    & f \text{ is } \mu\text{-strongly convex}, \\
+    & x_1 = x_0 - \alpha \nabla f(x_0), \\
+    & x^* = \arg\min_x f(x).
+\end{align*}
+
+
+$f$ is a hard function class to optimize over so we can re-write this as.
+
+
+The notes for this are primarily covered in some prof. Adrian's notes \href{https://adrientaylor.github.io/share/general_slides.pdf}{here}.
+
+Jason provided some additional insight on Sum of Square's programming as a way to get a ``certificate'' for a bound between polynomials.
+
+
+\section{Silver Step-sizes}
+
+Question: can you accelerate GD without changing algorithm. Just changing step sizes.
+
+Consider in $m$-smooth, $M$-strongly convex setting. Same GD step as original. $\kappa = M/m$.
+
+Mainstream from convex opt:
+\[\alpha_t = \overline{\alpha} \]
+which leads to $\Theta (\kappa)$ iterations to converge. This is the slow ``unaccelerated'' rate.
+We want to get the accelerated rate on general Convex problems.
+
+Before $\Theta (\sqrt k)$ has shown using methods with additional dynamics on general convex functions via Nesterov's accleration.
+
+If we look back at our analysis polynomials, it breaks down in convex functions because our Hessians $H$ change from step to step.
+
+Only the one-step case holds which is why we know the rate is at most $\theta(\kappa)$ in vanilla GD.
+
+One important idea is that if we consider the one-step optimal rate computed by finding the smallest $R_1$ to bound 
+\[\norm{x_1 - x^*} \leq R_1 \norm{x_0-x^*}\]
+
+This is suboptimal. In particular $R_1$ is optimized to be greedy for one-step as opposed to over schedules. In this sense, $R_1$ is the greedy contraction rate.
+
+Although there were empirical solutions to get step-sizes for faster performance in practice, there was NO step-size algorithm to get anything faster than.
+
+That is until Jason's paper in 2018.
+
+First we make some observations about how convex functions compare to quadratics with regard to a two step optimal solution. Jason hides the math here.
+
+Jason goes on to define silver step-sizes.
+
+
+There is a recusrive fomulaiton for n*2 steps where you take the n step schedule repeat twice and then within each of the two sub-n-step-schedules you multiply the last 
+
+
+Some information about the actual analysis
+
+Formulate the min-max problem just as before. 
+
+$\min_\{\alpha\} \max_{f, x_0} rate(\mu)$
+
+
+There is a lot of interesting research in this area.
+
+
+% \section{Optimization on Manifolds}
+
+% \section{Negative Stepsizes}
+
+% \section{Ravines in Optimization}
+
+\section{Nesterov's Accelertion and Curvature}
+
+This section is based on work from \href{https://arxiv.org/pdf/1503.01243}{Su, Boyd and Candes} (2015) and \href{https://arxiv.org/pdf/1810.08907}{Shi et al.} (2018).
+
+
+Acceleration over the class of $L$-smooth convex functions has proven to be a more challenging 
+problem. In 1983, Yurii Nesterov proposed a simple modification to the gradient descent rule yielding the $O(1\sqrt{T})$ rate to match the quadratic setting. Termed, Nesterov acceleration, the update can be written as:
+\begin{align*}
+    \by_k   &= \bx_k + \beta_k (\bx_k - \bx_{k-1}) \\
+    \bx_{k+1} &= \by_k - \eta \nabla f(\by_k)
+\end{align*}
+
+where $\beta_k$ is a momentum parameter (which can be tuned or scheduled) and $L$ is the smoothness parameter of $f$.
+
+Visually, this update first extrapolates $\bx_k$ in the direction of its last iteration ($\bx_k - \bx_{k-1}$) to get $\by_k$, and then performs a gradient step from the extrapolated point $\by_k$. We can visualize the updates on quadratic $f(\bx) = 10x_1^2 + x_2^2$ in Figure \ref{fig:nest_step_example_and_comparison}
+
+The proof for NAG is complicated, so we are going to leave it out for now, but there is useful intuition in comparing the algorithm to Polyak's heavy ball. The updates are almost identical except in Nesterov's the gradient is computed at the point $\textcolor{red}{\by_k}$ as opposed to $\textcolor{blue}{\bx_k}$.
+\begin{align*}
+   \text{Polyak's Update} &\quad \bx_{k+1} = \by_k - \eta \nabla f(\textcolor{blue}{\bx_k}) \\
+   \text{Nesterov's Update} &\quad \bx_{k+1} = \by_k - \eta \nabla f(\textcolor{red}{\by_k})
+\end{align*}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\textwidth]{static/nest_step_example.png}
+    \\[1.2em]
+    \includegraphics[width=0.7\textwidth]{static/vgd_nest_phb_comparison.png}
+    \caption{
+        Top row: Illustration of Nesterov's accelerated gradient descent steps on the quadratic function $f(\bx) = 10x_1^2 + x_2^2$. Bottom row: Comparison between 10 steps of vanilla gradient descent, Nesterov acceleration, and Polyak heavy ball methods on the same function
+        }
+    \label{fig:nest_step_example_and_comparison}
+    \end{figure}
+
+As in previous algorithms the challenge of adapting quadratic methods to general convex functions is that curvature may vary from one point to another. Intuitively, we might hope that $\nabla f(\by_k)$ provides more of curvature information than $\nabla f(\bx_k)$.
+
+We can start to see this by writing $\nabla f(\by_k)$ as a taylor approximation around $\nabla f(\by_k)$.
+\begin{align*}
+    \nabla f(\by_k) &\approx \nabla f(\bx_k) + \nabla^2 f(\bx_k)(\by_k - \bx_k) \\
+    &= \nabla f(\bx_k) + \nabla^2 f(\bx_k)\, \beta_k (\bx_k - \bx_{k-1})
+\end{align*}
+
+For the quadratic case, this approximation is exact.
+
+\TODO{Add a plot here to indicate whether this actually works or not as an algorithm on general convex functions since it should trivially work on quadratics}
+
+
 
 \end{document}

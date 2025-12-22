@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 NOV 2025 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 DEC 2025 01:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -609,31 +609,49 @@ LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
 (Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen298
+\captionmargin=\dimen299
+\caption@leftmargin=\dimen300
+\caption@rightmargin=\dimen301
+\caption@width=\dimen302
+\caption@indent=\dimen303
+\caption@parindent=\dimen304
+\caption@hangindent=\dimen305
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count342
+\c@continuedfloat=\count343
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count342
+\l__color_backend_stack_int=\count344
 \l__pdf_internal_box=\box117
 ) (latex_out/course-notes.aux)
 \openout1 = `course-notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -671,16 +689,16 @@ LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count343
-\scratchdimen=\dimen298
+\scratchcounter=\count345
+\scratchdimen=\dimen306
 \scratchbox=\box118
-\nofMPsegments=\count344
-\nofMParguments=\count345
+\nofMPsegments=\count346
+\nofMParguments=\count347
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count346
-\MPscratchDim=\dimen299
-\MPnumerator=\count347
-\makeMPintoPDFobject=\count348
+\MPscratchCnt=\count348
+\MPscratchDim=\dimen307
+\MPnumerator=\count349
+\makeMPintoPDFobject=\count350
 \everyMPtoPDFconversion=\toks48
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -688,22 +706,24 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 23.
  (latex_out/course-notes.out) (latex_out/course-notes.out)
 \@outlinefile=\write4
 \openout4 = `course-notes.out'.
 
 
 Couldn't patch \deferred@thm@head!
-LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 22.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) (latex_out/course-notes.toc)
@@ -717,15 +737,15 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 62.
+(hyperref)                removing `math shift' on input line 66.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nabla' on input line 62.
+(hyperref)                removing `\nabla' on input line 66.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 62.
+(hyperref)                removing `math shift' on input line 66.
 
 
 
@@ -734,108 +754,125 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [3]
 
 [4]
-<static/constant-step-size-visual-too-small.png, id=125, 828.09375pt x 654.445pt>
+<static/constant-step-size-visual-too-small.png, id=145, 828.09375pt x 654.445pt>
 File: static/constant-step-size-visual-too-small.png Graphic file (type png)
 <use static/constant-step-size-visual-too-small.png>
-Package pdftex.def Info: static/constant-step-size-visual-too-small.png  used on input line 144.
+Package pdftex.def Info: static/constant-step-size-visual-too-small.png  used on input line 148.
 (pdftex.def)             Requested size: 150.32504pt x 118.8036pt.
-<static/constant-step-size-visual-too-big.png, id=127, 744.7825pt x 634.37pt>
+<static/constant-step-size-visual-too-big.png, id=147, 744.7825pt x 634.37pt>
 File: static/constant-step-size-visual-too-big.png Graphic file (type png)
 <use static/constant-step-size-visual-too-big.png>
-Package pdftex.def Info: static/constant-step-size-visual-too-big.png  used on input line 145.
+Package pdftex.def Info: static/constant-step-size-visual-too-big.png  used on input line 149.
 (pdftex.def)             Requested size: 150.32504pt x 128.03331pt.
-<static/constant-step-size-visual-just-right.png, id=128, 751.80875pt x 669.50125pt>
+<static/constant-step-size-visual-just-right.png, id=148, 751.80875pt x 669.50125pt>
 File: static/constant-step-size-visual-just-right.png Graphic file (type png)
 <use static/constant-step-size-visual-just-right.png>
-Package pdftex.def Info: static/constant-step-size-visual-just-right.png  used on input line 146.
+Package pdftex.def Info: static/constant-step-size-visual-just-right.png  used on input line 150.
 (pdftex.def)             Requested size: 150.32504pt x 133.86723pt.
 
 
 [5 <./static/constant-step-size-visual-too-small.png> <./static/constant-step-size-visual-too-big.png> <./static/constant-step-size-visual-just-right.png>]
 
 [6]
-<static/2-step-size-visual-center-too-big.png, id=143, 407.5225pt x 386.44376pt>
+
+[7]
+<static/2-step-size-visual-center-too-big.png, id=173, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-center-too-big.png Graphic file (type png)
 <use static/2-step-size-visual-center-too-big.png>
-Package pdftex.def Info: static/2-step-size-visual-center-too-big.png  used on input line 207.
+Package pdftex.def Info: static/2-step-size-visual-center-too-big.png  used on input line 240.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
-<static/2-step-size-visual-right-too-big.png, id=144, 407.5225pt x 386.44376pt>
+<static/2-step-size-visual-right-too-big.png, id=174, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-right-too-big.png Graphic file (type png)
 <use static/2-step-size-visual-right-too-big.png>
-Package pdftex.def Info: static/2-step-size-visual-right-too-big.png  used on input line 213.
+Package pdftex.def Info: static/2-step-size-visual-right-too-big.png  used on input line 246.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
-<static/2-step-size-visual-just-right.png, id=145, 407.5225pt x 386.44376pt>
+<static/2-step-size-visual-just-right.png, id=175, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-just-right.png Graphic file (type png)
 <use static/2-step-size-visual-just-right.png>
-Package pdftex.def Info: static/2-step-size-visual-just-right.png  used on input line 219.
+Package pdftex.def Info: static/2-step-size-visual-just-right.png  used on input line 252.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
 
-Overfull \hbox (57.52663pt too wide) in paragraph at lines 227--228
+Overfull \hbox (57.52663pt too wide) in paragraph at lines 260--261
 []\OT1/cmr/m/n/10.95 The op-ti-mal roots (in-verse step-sizes) are shown as the dot-ted green line at $[] = []$ 
  []
 
 
 
-[7 <./static/2-step-size-visual-center-too-big.png> <./static/2-step-size-visual-right-too-big.png> <./static/2-step-size-visual-just-right.png>]
-Overfull \hbox (5.36862pt too wide) in paragraph at lines 258--259
+[8 <./static/2-step-size-visual-center-too-big.png> <./static/2-step-size-visual-right-too-big.png> <./static/2-step-size-visual-just-right.png>]
+<static/Chebyshev-Polynomials.png, id=184, 250.9375pt x 168.63pt>
+File: static/Chebyshev-Polynomials.png Graphic file (type png)
+<use static/Chebyshev-Polynomials.png>
+Package pdftex.def Info: static/Chebyshev-Polynomials.png  used on input line 277.
+(pdftex.def)             Requested size: 281.85587pt x 189.4278pt.
+
+
+[9 <./static/Chebyshev-Polynomials.png>]
+Overfull \hbox (5.36862pt too wide) in paragraph at lines 321--322
 [][]\OT1/cmr/m/sc/10.95 // TODO: write out the jus-ti-fi-ca-tion for this us-ing big n limit for the ``k" term.[] 
  []
 
-<static/Pasted image 20251027222540.png, id=155, 558.085pt x 392.46625pt>
+
+
+[10{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<static/Pasted image 20251027222540.png, id=200, 558.085pt x 392.46625pt>
 File: static/Pasted image 20251027222540.png Graphic file (type png)
 <use static/Pasted image 20251027222540.png>
-Package pdftex.def Info: static/Pasted image 20251027222540.png  used on input line 286.
-(pdftex.def)             Requested size: 400.0pt x 281.29991pt.
+Package pdftex.def Info: static/Pasted image 20251027222540.png  used on input line 359.
+(pdftex.def)             Requested size: 200.0pt x 140.64696pt.
 
 
-[8{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<static/Screenshot 2025-10-27 at 8.58.00 PM.png, id=161, 1010.77625pt x 619.31375pt>
-File: static/Screenshot 2025-10-27 at 8.58.00 PM.png Graphic file (type png)
-<use static/Screenshot 2025-10-27 at 8.58.00 PM.png>
-Package pdftex.def Info: static/Screenshot 2025-10-27 at 8.58.00 PM.png  used on input line 307.
-(pdftex.def)             Requested size: 1010.77377pt x 619.31224pt.
-
-Overfull \hbox (541.01875pt too wide) in paragraph at lines 306--309
-[]
- []
-
-
-
-[9 <./static/Pasted image 20251027222540.png>]
-
-[10 <./static/Screenshot 2025-10-27 at 8.58.00 PM.png>]
-
-[11]
-<static/Screenshot 2025-10-30 at 4.43.11 PM.png, id=182, 938.50626pt x 576.1525pt>
-File: static/Screenshot 2025-10-30 at 4.43.11 PM.png Graphic file (type png)
-<use static/Screenshot 2025-10-30 at 4.43.11 PM.png>
-Package pdftex.def Info: static/Screenshot 2025-10-30 at 4.43.11 PM.png  used on input line 365.
-(pdftex.def)             Requested size: 400.0pt x 245.56047pt.
-
+[11 <./static/Pasted image 20251027222540.png>]
 
 [12]
 
-[13 <./static/Screenshot 2025-10-30 at 4.43.11 PM.png>] (latex_out/course-notes.aux)
+[13]
+<static/Screenshot 2025-10-30 at 4.43.11 PM.png, id=225, 938.50626pt x 576.1525pt>
+File: static/Screenshot 2025-10-30 at 4.43.11 PM.png Graphic file (type png)
+<use static/Screenshot 2025-10-30 at 4.43.11 PM.png>
+Package pdftex.def Info: static/Screenshot 2025-10-30 at 4.43.11 PM.png  used on input line 463.
+(pdftex.def)             Requested size: 400.0pt x 245.56047pt.
+
+
+[14 <./static/Screenshot 2025-10-30 at 4.43.11 PM.png>]
+
+[15]
+
+[16]
+<static/nest_step_example.png, id=243, 1305.9189pt x 339.669pt>
+File: static/nest_step_example.png Graphic file (type png)
+<use static/nest_step_example.png>
+Package pdftex.def Info: static/nest_step_example.png  used on input line 584.
+(pdftex.def)             Requested size: 328.82707pt x 85.52344pt.
+<static/vgd_nest_phb_comparison.png, id=244, 1304.4735pt x 370.0224pt>
+File: static/vgd_nest_phb_comparison.png Graphic file (type png)
+<use static/vgd_nest_phb_comparison.png>
+Package pdftex.def Info: static/vgd_nest_phb_comparison.png  used on input line 586.
+(pdftex.def)             Requested size: 328.82707pt x 93.27322pt.
+
+
+[17 <./static/nest_step_example.png> <./static/vgd_nest_phb_comparison.png>]
+
+[18] (latex_out/course-notes.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `course-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 72BE2603391BB98BCA42755B007B06E5;2799.
+(rerunfilecheck)             Checksum: F09DA7ECBA163940CD840F2B682D4333;3662.
  ) 
 Here is how much of TeX's memory you used:
- 22742 strings out of 473190
- 415810 string characters out of 5715801
- 799107 words of memory out of 5000000
- 45542 multiletter control sequences out of 15000+600000
+ 24089 strings out of 473190
+ 442057 string characters out of 5715801
+ 827472 words of memory out of 5000000
+ 46868 multiletter control sequences out of 15000+600000
  577274 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,101p,737b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on latex_out/course-notes.pdf (13 pages, 5951034 bytes).
+ 99i,16n,101p,737b,616s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on latex_out/course-notes.pdf (18 pages, 3460931 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 38 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 379 PDF objects out of 1000 (max. 8388607)
+ 283 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
