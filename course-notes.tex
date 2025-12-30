@@ -9,6 +9,7 @@
 \usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{Shorthands}
+\hidetodos
 \usepackage{upgreek}
 \usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty
 \usepackage{caption}
@@ -137,7 +138,7 @@ Consider the following minimax problem where we look for the algorithm (parameet
 Using the LDS update to expand the numerator,
 \[\argmin_{\alpha} \max_{\bH, \bx_0} \frac{\norm{\p{\bI - \alpha \bH}\p{\bx_0 - \bx^*}}}{\norm{\bx_0 - \bx^*}}\]
 Some may recognize the inner maximization as the matrix norm of $(\bI-\alpha \bH)$. Since $\bH$ is symmetric this is equivalent to the maximum eigenvalue.\footnote{More information on the matrix norm can be found \href{https://math.stackexchange.com/questions/4159983/derivation-of-l2-norm-of-matrix-formula}{here}.} So we can express the minimax as \[\argmin_{\alpha} \max_{\bH} \lambda_{\text{max}}\p{\bI-\alpha \bH} \]
-\TODO{Consider adding some explanation of spectral / matrix norm? I believe the argument to get that all we care about the worst case eigenvalue is see that we can diagonalize $\bH$ as $\bQ\bLambda \bQ^\top$ and so on.}
+\TODO{Consider adding some explanation of spectral / matrix norm?}
 
 Since we assumed $m\bI \preceq \bH \preceq M\bI$ what we can further simplify to \[\argmin_{\alpha} \max_{m\leq \lambda\leq M} \abs{1-\alpha\lambda}\]
 
@@ -473,7 +474,7 @@ Jason provided some intuitive argument for the actual conclusion that arcsine is
 
 In the limit of Chebyshev step sizes what ends up happening is that we are ``equally" hedged against everything. This means that \textbf{CHEBYSHEV BASED METHODS NEVER DO BETTER} than \[\frac{\sqrt{k} -1}{\sqrt{k} + 1}\]
 
-There is some connection to Green's function that I should learn about: fundamentally, the step size optimum is given by the negative green's function evaluated on $[m, M]^c$ or something like this on the complex plane. \textcolor{red}{\textsc{// TODO: learn more about this}}
+There is some connection to Green's function that I should learn about: fundamentally, the step size optimum is given by the negative green's function evaluated on $[m, M]^c$ or something like this on the complex plane. \TODO{learn more about this}
 
 
 \subsection{Understanding the best case scenarios via a two player game}

@@ -229,9 +229,15 @@
 
 %%%%% FARAZ CUSTOM COMMANDS %%%%%%%%
 
+% TODO toggle feature
+\newif\ifshowtodos
+\showtodostrue  % Show TODOs by default
+\newcommand{\showtodos}{\showtodostrue}
+\newcommand{\hidetodos}{\showtodosfalse}
+
 % comments
 \newcommand{\NOTE}[1]{\textcolor{gray}{\textsc{// NOTE: #1}}}
-\newcommand{\TODO}[1]{\textcolor{red}{\textsc{// TODO: #1}}}
+\newcommand{\TODO}[1]{\ifshowtodos\textcolor{red}{\textsc{// TODO: #1}}\fi}
 
 % simple math
 \newcommand{\inv}[1]{\ensuremath{#1^{-1}}}

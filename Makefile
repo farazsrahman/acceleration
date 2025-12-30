@@ -7,12 +7,12 @@ copy:
 	cp $(PDF_SOURCE) $(PDF_DEST)
 	@echo "PDF copied to $(PDF_DEST)"
 
-push:
-	git commit -am "[update course-notes.pdf]$${MESSAGE}"; \
+push: copy
+	git commit -am "[update course-notes.pdf] $${MESSAGE}"; \
 	git push origin HEAD
 	cd $(SITE_DIR) && \
 	git add $(PDF_DEST) && \
-	git commit -m "[update accel-opt.pdf]$${MESSAGE}" -- $(PDF_DEST) && \
+	git commit -m "[update accel-opt.pdf] $${MESSAGE}" -- $(PDF_DEST) && \
 	git push origin HEAD
 
 .PHONY: copy push
