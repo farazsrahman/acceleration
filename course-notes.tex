@@ -44,8 +44,7 @@ This course aims to study progress in first order optimizers: algorithms that ai
 The canonical algorithm to solve this problem is Gradient Descent (GD) and is described by the following update
 \[\bx_{t+1} = \bx_t -\alpha_t \nabla f(\bx_t)\]
 where $\{\alpha_t\}$ parameterizes different "schedules" for GD.
-
-These notes will study gradient descent in various problem settings (objective functions), along with how choices for $\{\alpha_t\}$ can affect convergence rates, numerical robustness, and \TODO{add desc.}
+% These notes will study gradient descent in various problem settings (objective functions), along with how choices for $\{\alpha_t\}$ can affect convergence rates, numerical robustness, and \TODO{add desc.}
 % \\\\
 % Things this course will not going to cover:
 % \begin{enumerate}
@@ -54,7 +53,7 @@ These notes will study gradient descent in various problem settings (objective f
 % \item Robustness - Robustness
 % \end{enumerate}
 
-Here are some fundamental question about Gradient Descent that we will try to anwer.
+Here are some questions to start discussion:
 
 \begin{enumerate}[label=Q\arabic*)]
 \item Why move in the direction $-\nabla f$
@@ -86,7 +85,7 @@ The simplest place to start our study is in the optimization of convex quadratic
 
 We can consider any function that can be expressed as
 \[f(\bx) = \frac{1}{2}\bx^\top\bH\bx -\bb^\top \bx + c\]
-where $\bH\succeq 0$ (necessary for $f$ to be convex) and $\bH$ is symmetric.\footnote{We can assume $\bH$ is symmetric without loss of generality because if $\bH$ is not symmetric, we can replace it with $\hat \bH = \frac{1}{2}\left(\bH + \bH^\top\right)$, which yields an equivalent function $\hat f$}
+where $\bH\succeq 0$\footnote{$\bH\succeq 0 \Leftrightarrow \bx^T\bH \bx \geq 0, \quad \forall \bx \in \mathbb{R}^m$} (necessary for $f$ to be convex) and $\bH$ is symmetric.\footnote{We can assume $\bH$ is symmetric without loss of generality because if $\bH$ is not symmetric, we can replace it with $\hat \bH = \frac{1}{2}\left(\bH + \bH^\top\right)$, which yields an equivalent function $\hat f$}
 
 
 One assumption we will make is that $m\bI \preceq \bH \preceq M\bI$ where $m, M > 0$ making the $f$ $M$-smooth and $m$-strongly convex. 
@@ -261,7 +260,7 @@ The optimal roots (inverse step-sizes) are shown as the dotted green line at $\c
 
 \TODO{add derivation of optmial here? in class he just told us with was this}
 
-\subsubsection{The General Case}
+\subsubsection{The General Case}\label{subsubsec: The General Case}
 
 
 The general problem $n\geq 2$ steps with step sizes given by $\cb{\alpha_i}_{i\in [n]}$ can be expressed as
@@ -382,7 +381,7 @@ Next, we want to go from this recurrence into something that we can implement. L
 &= \p{c_1+c_2\bH}\underbrace{p_{n}(\bH)(\bx_0-\bx^*)}_{=\, \p{\bx_n - \bx^*}} - c_3\underbrace{p_{n-1}(\bH)(\bx_0-\bx^*)}_{=\, \p{\bx_{n-1} - \bx^*}}
 \end{align*}
 
-Where the second line points out that the recurrence allows us to express the optimal $n+1$ step iterate in terms of our $n$ and $n-1$ step iterates. Further rearranging gives.
+Where the third line points out that the recurrence allows us to express the optimal $n+1$ step iterate in terms of our $n$ and $n-1$ step iterates. Further rearranging gives.
 \begin{align*}
     \bx_{n+1} - \bx^* &=  c_1\p{\bx_n - \bx^*} +c_2 \underbrace{\bH \p{\bx_n - \bx^*}}_{=\,\nabla f(\bx_n)} - c_3\p{\bx_{n-1} - \bx^*}\\
     &= c_1\bx_n + c'_3\bx_{n-1} + c_2 \nabla f(\bx_n) - \p{c'_3 + c_1}\bx^* \\
@@ -402,7 +401,7 @@ c'_3 = \p{\frac{2}{\sqrt{M}+\sqrt{m}}}^2, \quad c_2 =  \p{\frac{\sqrt{M}-\sqrt{m
 
 
 
-The relationship between momentum and step-size parameters $c'_3$ and $c_2$ is worth its own section. Fabian Pedregosa's 2023 ICML Blog \href{https://iclr-blogposts.github.io/2023/blog/2023/hitchhikers-momentum/}{\textit{A Hitchhiker's Guide to Momentum}} may be of interest for further reading and includes derivation of the regions for which $(c'_3, c_2)$ achieve the accelerated rate.
+The relationship between momentum and step-size parameters $c'_3$ and $c_2$ is worth its own section. Fabian Pedregosa's 2023 ICML Blog \href{https://iclr-blogposts.github.io/2023/blog/2023/hitchhikers-momentum/}{\textit{A Hitchhiker's Guide to Momentum}} may be of interest for further reading and includes derivation of the regions for which $(c'_3, c_2)$ achieve the accelerated rate. \TODO{the derivation makes not assumption on the implementation of step-size algorithm to arrive at an optimal $n$, $n-1$ step contraction, so does it not matter?}
 
 
 
@@ -410,43 +409,53 @@ The relationship between momentum and step-size parameters $c'_3$ and $c_2$ is w
 
 \subsubsection{Random Stepsizes via Potential Theory}
 
-Note that the above derivation for optimal step-sizes \textbf{never} made an assmption on the ordering of step-sizes. Informally,
-as number $n$ steps we are optimizing grows large, taking a random ordering of these step-sizes will be approximately the same as sampling iid from some distribution - that is something like  $\hat \mu_n = \frac{1}{n}\sum_t\delta(\alpha_t)$. The figure \TODO{add Figure names} would suggest to roots (inverse steps sizes) from the arcsine distribution.
+Note that the derivation for optimal step-size schedules in \ref{subsubsec: The General Case} \textbf{never} made an assmption on the ordering of step-sizes. Informally,
+as number $n$ steps we are optimizing grows large, taking a random ordering of these step-sizes can be approximated by sampling iid from some distribution - that is something like  $\mu_n = \frac{1}{n}\sum_t\delta(\alpha_t)$ for large $n$. The figure \ref{fig:chebyshev-roots-arcsine} would suggest that the limiting distribution $\mu_n \rightarrow \mu$ is the arcsine distribution.
 
-Theoretically we may want to ask if we can pose this question as an optimization over sampling distributions and see if we get the same result. Consider the following problem.\footnote{It is tempting to simplify our work by considering the expected contraction over only one-step but the result may be misleading. To see this consider the betting game where everyday you may 2x your wealth or 1/4x it. For a large number of days, do you earn money? \TODO{add result to an appendix, add appendix}}
+Alternatively, we can give theoretical justification for $\mu$ by showing that it is the optimal distribution. To begin, will express our problem using the matrix norm.
 
-\TODO{There is a lot more work required to be formal here because of the expectation and limit, but not all of needs to be expressed here. Perhaps I move some of it to the appendix and try to be really formal in that setting? I should provide INTUITION here and reference the appendix for more info}
+\begin{align*}
+    R_n(\omega) &= \max_{f} \norm{\prod{\p{\bI-\alpha_t(\omega) \bLambda}}} \\
+    &= \max_{\lambda\in[m,M]} \norm{\prod{\abs{1- \alpha_t(\omega)\lambda}}}
+\end{align*}
 
-Suppose $\alpha_t \sim \mu$ iid. What is the optimal $\mu$ to sample from? What is the corresponding rate?
-
-
-\[R(\mu) = \max_{f, \bx_0} \lim_{n\rightarrow \infty} \E_{\{\alpha_t\} \sim \mu^n}\b{\frac{\norm{\bx_n - \bx^*}}{\norm{\bx_0-\bx^*}}^{1/n}}\]
-
-We should first move this to the matrix norm formulation and diagonalize \TODO{Check what considerations shuold be made because we are doing the matrix norm along side a limit and an expectation}
-
-
-\[R(\mu) = \max_{f} \lim_{n\rightarrow \infty} \E\b{\norm{\prod{\p{\bI-\alpha_t \bLambda}}}^{1/n}}\]
-
-This reduces down to a scalar optimization over the worst case eigenvalue. In the scalar setting we can move the absolute values inside of the product
-
-\[R(\mu) = \max_{\lambda \in [m, M]} \lim_{n\rightarrow \infty} \E\b{\p{\prod{\abs{1- \frac{\lambda}{\beta_t}}}}^{1/n}}\]
+Where $\alpha_t(\omega)$ are function of the random draw from $\mu$, and the second line diagonalizes.
+The optimization problem we will be interested in for the random case is 
+\[\min_\mu \lim_{n\to\infty} \E_{\{\alpha_t\}\sim\mu^n} \b{\sqrt[n]{R_n}}\]
+% \footnote{It is tempting to only consider the expected contraction only one-step but the result may be misleading. Consider the betting game where everyday you may 2x your wealth or 1/4x it. For a large number of days, do you earn money?}
 
 
-We want to study how the geometric mean converges. To do this, we can analyze the log one-step contraction rate. In general, if $X_i$ are distributed i.i.d and $G_n := \p{\prod X_i}^{1/n}$ is the geometric mean, then $F_n = \log G_n$ is the arithmetic mean of $\log X_i$. Suppose $\E \log X_i = \mu$, then $F_n \to \mu$ almost surely according to the strong law of large numbers and $G_n \to e^\mu$ almost surely as well.\footnote{See further discussion at \href{https://math.stackexchange.com/questions/1108732/geometric-mean-with-the-law-of-large-numbers}{this Math Stack Exchange post}.} Thus it suffices to study the problem minimizing \TODO{Check this} 
+% \[R(\mu) = \max_{f, \bx_0} \lim_{n\rightarrow \infty} \E_{\{\alpha_t\} \sim \mu^n}\b{\frac{\norm{\bx_n - \bx^*}}{\norm{\bx_0-\bx^*}}^{1/n}}\]
 
-\[\log R(u) = \max_{\lambda\in[m, M]} \E \p{\log\abs{1-\frac{\lambda}{\beta}}}\]
+% What is the optimal $\mu$ to sample from? What is the corresponding rate? 
+
+% We should first move this to the matrix norm formulation and diagonalize, which in this case results in an upper bound.
+% \footnote{There is additional nuance to moving to a matrix norm since it technically requires moving the $\max_{x_0}$ from outside the limit and expectation to inside to arrive at something like $\max_{f} \lim_{n\rightarrow \infty} \E_{\{\alpha_t\} \sim \mu^n}\b{\p{\max_{x_0}\frac{\norm{\bx_n - \bx^*}}{\norm{\bx_0-\bx^*}}}^{1/n}}$. To move the $\max_{x_0}$ inside the limit we can upper bound the $\lim_{n\rightarrow\infty}$ by replacing it with a  $\lim \sup_{n\rightarrow\infty}$ since $\max$ can commute with $\lim \sup$. To move the max inside the expectation we can leverage the fact that $\max_{x_0} \E_\alpha[f(x_0, \alpha)] \leq \E_\alpha[\max_{x_0} f(x_0, \alpha)].$ for any $f$.}
+
+% \[R(\mu) \leq \max_{f} \lim_{n\rightarrow \infty} \E\b{\norm{\prod{\p{\bI-\alpha_t \bLambda}}}^{1/n}}\]
 
 
 
-\subsubsection{Solving the Extremal Problem via Potential Theory:}
+
+
+
+% This reduces down to a scalar optimization over the worst case eigenvalue. In the scalar setting we can move the absolute values inside of the product
+
+% \[R(\mu) = \max_{\lambda \in [m, M]} \lim_{n\rightarrow \infty} \E\b{\p{\prod{\abs{1- \frac{\lambda}{\beta_t}}}}^{1/n}}\]
+
+
+We want to study how the geometric mean converges. To do this, we can analyze the log one-step contraction rate. In general, if $X_i$ are distributed i.i.d and $G_n := \p{\prod X_i}^{1/n}$ is the geometric mean, then $\E \log X_i = m$ implies that $G_n \to e^m$ almost surely.\footnote{See further discussion at \href{https://math.stackexchange.com/questions/1108732/geometric-mean-with-the-law-of-large-numbers}{this Math Stack Exchange post}.} Thus it suffices to study the problem minimizing 
+
+\[\log R(u) = \max_{\lambda\in[m, M]} \E \p{\log\abs{1-\frac{\lambda}{\alpha}}}\]
+
+since it will also minimize the geometric average of the rates. To solve the problem cleanly we can make a connection to electrostatic potential theory. To begin, we write the two problems as follow:
 
 \begin{itemize}
-\item Step-size Problem (copy paste from above) but we minimize over the root (inverse-step-size) distribution $\gamma$: \[\min_{\gamma} \max_{\lambda \in [m, M]}  \E_{\beta\sim\gamma} \log \abs{1-\frac{\lambda}{\beta}}\]
+\item Step-size Problem: copy paste from aboves but we use $\beta = \alpha^{-1}$ to minimize over the inverse-step-size distribution $\gamma$ since it allows us to make a cleaner connection to potentual theory.
+\[\min_{\gamma} \max_{\lambda \in [m, M]}  \E_{\beta\sim\gamma} \log \abs{1-\frac{\lambda}{\beta}}\]
 
 
-\item Electrostatics Problem:
-
-Consider the following minimization of potentials on a line where the $\log1/\abs{\beta-\alpha}$ kernel defines the energy between particles \[\min_{\gamma \in \calP(m, M)} \E_{\alpha, \beta \sim \gamma} \log\frac{1}{\abs{\beta-\alpha}} \]
+\item Electrostatics Problem: Meinimization of potentials on a line where the $\log1/\abs{\beta-\alpha}$ kernel defines the energy between particles \[\min_{\gamma \in \calP(m, M)} \E_{\alpha, \beta \sim \gamma} \log\frac{1}{\abs{\beta-\alpha}} \]
 
 \end{itemize}
 
@@ -476,79 +485,79 @@ There is some connection to Green's function that I should learn about: fundamen
 Game \[ Rate = \inf_{\gamma} \sup_{\lambda \in [m, M]} \E_{\beta \sim\gamma} \log\abs{1-\beta^{-1}\lambda}\]
 To make the game more symmetric we can lift the function player into distribution over $\lambda$s giving \[\inf_{\gamma\in \calP(E)} \sup_{\rho \in \calP(E)} \E_{\beta\sim\gamma, \lambda\sim\rho} \log\abs{1-\beta^{-1}\lambda}\]
 
-\section{Performance Estimation Problem (PEP)}
+% \section{Performance Estimation Problem (PEP)}
 
-Can we automatically figure out worse-case functions 
+% Can we automatically figure out worse-case functions 
 
-\textbf{Performance Estimation Problem for Gradient Descent:}
-
-
-Consider the worst-case function $f$ which is $L$-smooth and $\mu$-strongly convex. Given initialization $x_0$, first iterate $x_1$, and the minimizer $x^*$, the max performance estimation problem for the normalized residual after one step of gradient descent is:
+% \textbf{Performance Estimation Problem for Gradient Descent:}
 
 
-The primal for these problems is the worse case function a algorithm performs.
-The dual is the best worst-case bound you can get from an algorithm.
-
-\TODO{Fix this cursor generated}
-\begin{align*}
-    R_1(\mu) = \max_{f,\, x_0,\, x_1,\, x^*} \quad & \frac{\norm{x_1 - x^*}^2}{\norm{x_0 - x^*}^2} \\
-    \text{subject to} \quad & f \text{ is } L\text{-smooth}, \\
-    & f \text{ is } \mu\text{-strongly convex}, \\
-    & x_1 = x_0 - \alpha \nabla f(x_0), \\
-    & x^* = \arg\min_x f(x).
-\end{align*}
+% Consider the worst-case function $f$ which is $L$-smooth and $\mu$-strongly convex. Given initialization $x_0$, first iterate $x_1$, and the minimizer $x^*$, the max performance estimation problem for the normalized residual after one step of gradient descent is:
 
 
-$f$ is a hard function class to optimize over so we can re-write this as.
+% The primal for these problems is the worse case function a algorithm performs.
+% The dual is the best worst-case bound you can get from an algorithm.
+
+% \TODO{Fix this cursor generated}
+% \begin{align*}
+%     R_1(\mu) = \max_{f,\, x_0,\, x_1,\, x^*} \quad & \frac{\norm{x_1 - x^*}^2}{\norm{x_0 - x^*}^2} \\
+%     \text{subject to} \quad & f \text{ is } L\text{-smooth}, \\
+%     & f \text{ is } \mu\text{-strongly convex}, \\
+%     & x_1 = x_0 - \alpha \nabla f(x_0), \\
+%     & x^* = \arg\min_x f(x).
+% \end{align*}
 
 
-The notes for this are primarily covered in some prof. Adrian's notes \href{https://adrientaylor.github.io/share/general_slides.pdf}{here}.
-
-Jason provided some additional insight on Sum of Square's programming as a way to get a ``certificate'' for a bound between polynomials.
+% $f$ is a hard function class to optimize over so we can re-write this as.
 
 
-\section{Silver Step-sizes}
+% The notes for this are primarily covered in some prof. Adrian's notes \href{https://adrientaylor.github.io/share/general_slides.pdf}{here}.
 
-Question: can you accelerate GD without changing algorithm. Just changing step sizes.
-
-Consider in $m$-smooth, $M$-strongly convex setting. Same GD step as original. $\kappa = M/m$.
-
-Mainstream from convex opt:
-\[\alpha_t = \overline{\alpha} \]
-which leads to $\Theta (\kappa)$ iterations to converge. This is the slow ``unaccelerated'' rate.
-We want to get the accelerated rate on general Convex problems.
-
-Before $\Theta (\sqrt k)$ has shown using methods with additional dynamics on general convex functions via Nesterov's accleration.
-
-If we look back at our analysis polynomials, it breaks down in convex functions because our Hessians $H$ change from step to step.
-
-Only the one-step case holds which is why we know the rate is at most $\theta(\kappa)$ in vanilla GD.
-
-One important idea is that if we consider the one-step optimal rate computed by finding the smallest $R_1$ to bound 
-\[\norm{x_1 - x^*} \leq R_1 \norm{x_0-x^*}\]
-
-This is suboptimal. In particular $R_1$ is optimized to be greedy for one-step as opposed to over schedules. In this sense, $R_1$ is the greedy contraction rate.
-
-Although there were empirical solutions to get step-sizes for faster performance in practice, there was NO step-size algorithm to get anything faster than.
-
-That is until Jason's paper in 2018.
-
-First we make some observations about how convex functions compare to quadratics with regard to a two step optimal solution. Jason hides the math here.
-
-Jason goes on to define silver step-sizes.
+% Jason provided some additional insight on Sum of Square's programming as a way to get a ``certificate'' for a bound between polynomials.
 
 
-There is a recusrive fomulaiton for n*2 steps where you take the n step schedule repeat twice and then within each of the two sub-n-step-schedules you multiply the last 
+% \section{Silver Step-sizes}
+
+% Question: can you accelerate GD without changing algorithm. Just changing step sizes.
+
+% Consider in $m$-smooth, $M$-strongly convex setting. Same GD step as original. $\kappa = M/m$.
+
+% Mainstream from convex opt:
+% \[\alpha_t = \overline{\alpha} \]
+% which leads to $\Theta (\kappa)$ iterations to converge. This is the slow ``unaccelerated'' rate.
+% We want to get the accelerated rate on general Convex problems.
+
+% Before $\Theta (\sqrt k)$ has shown using methods with additional dynamics on general convex functions via Nesterov's accleration.
+
+% If we look back at our analysis polynomials, it breaks down in convex functions because our Hessians $H$ change from step to step.
+
+% Only the one-step case holds which is why we know the rate is at most $\theta(\kappa)$ in vanilla GD.
+
+% One important idea is that if we consider the one-step optimal rate computed by finding the smallest $R_1$ to bound 
+% \[\norm{x_1 - x^*} \leq R_1 \norm{x_0-x^*}\]
+
+% This is suboptimal. In particular $R_1$ is optimized to be greedy for one-step as opposed to over schedules. In this sense, $R_1$ is the greedy contraction rate.
+
+% Although there were empirical solutions to get step-sizes for faster performance in practice, there was NO step-size algorithm to get anything faster than.
+
+% That is until Jason's paper in 2018.
+
+% First we make some observations about how convex functions compare to quadratics with regard to a two step optimal solution. Jason hides the math here.
+
+% Jason goes on to define silver step-sizes.
 
 
-Some information about the actual analysis
-
-Formulate the min-max problem just as before. 
-
-$\min_\{\alpha\} \max_{f, x_0} rate(\mu)$
+% There is a recusrive fomulaiton for n*2 steps where you take the n step schedule repeat twice and then within each of the two sub-n-step-schedules you multiply the last 
 
 
-There is a lot of interesting research in this area.
+% Some information about the actual analysis
+
+% Formulate the min-max problem just as before. 
+
+% $\min_\{\alpha\} \max_{f, x_0} rate(\mu)$
+
+
+% There is a lot of interesting research in this area.
 
 
 % \section{Optimization on Manifolds}

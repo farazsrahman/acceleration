@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 DEC 2025 01:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 DEC 2025 02:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -737,15 +737,15 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 66.
+(hyperref)                removing `math shift' on input line 65.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nabla' on input line 66.
+(hyperref)                removing `\nabla' on input line 65.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 66.
+(hyperref)                removing `math shift' on input line 65.
 
 
 
@@ -754,20 +754,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [3]
 
 [4]
-<static/constant-step-size-visual-too-small.png, id=145, 828.09375pt x 654.445pt>
+<static/constant-step-size-visual-too-small.png, id=135, 828.09375pt x 654.445pt>
 File: static/constant-step-size-visual-too-small.png Graphic file (type png)
 <use static/constant-step-size-visual-too-small.png>
-Package pdftex.def Info: static/constant-step-size-visual-too-small.png  used on input line 148.
+Package pdftex.def Info: static/constant-step-size-visual-too-small.png  used on input line 147.
 (pdftex.def)             Requested size: 150.32504pt x 118.8036pt.
-<static/constant-step-size-visual-too-big.png, id=147, 744.7825pt x 634.37pt>
+<static/constant-step-size-visual-too-big.png, id=137, 744.7825pt x 634.37pt>
 File: static/constant-step-size-visual-too-big.png Graphic file (type png)
 <use static/constant-step-size-visual-too-big.png>
-Package pdftex.def Info: static/constant-step-size-visual-too-big.png  used on input line 149.
+Package pdftex.def Info: static/constant-step-size-visual-too-big.png  used on input line 148.
 (pdftex.def)             Requested size: 150.32504pt x 128.03331pt.
-<static/constant-step-size-visual-just-right.png, id=148, 751.80875pt x 669.50125pt>
+<static/constant-step-size-visual-just-right.png, id=138, 751.80875pt x 669.50125pt>
 File: static/constant-step-size-visual-just-right.png Graphic file (type png)
 <use static/constant-step-size-visual-just-right.png>
-Package pdftex.def Info: static/constant-step-size-visual-just-right.png  used on input line 150.
+Package pdftex.def Info: static/constant-step-size-visual-just-right.png  used on input line 149.
 (pdftex.def)             Requested size: 150.32504pt x 133.86723pt.
 
 
@@ -776,48 +776,48 @@ Package pdftex.def Info: static/constant-step-size-visual-just-right.png  used o
 [6]
 
 [7]
-<static/2-step-size-visual-center-too-big.png, id=173, 407.5225pt x 386.44376pt>
+<static/2-step-size-visual-center-too-big.png, id=161, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-center-too-big.png Graphic file (type png)
 <use static/2-step-size-visual-center-too-big.png>
-Package pdftex.def Info: static/2-step-size-visual-center-too-big.png  used on input line 240.
+Package pdftex.def Info: static/2-step-size-visual-center-too-big.png  used on input line 239.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
-<static/2-step-size-visual-right-too-big.png, id=174, 407.5225pt x 386.44376pt>
+<static/2-step-size-visual-right-too-big.png, id=162, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-right-too-big.png Graphic file (type png)
 <use static/2-step-size-visual-right-too-big.png>
-Package pdftex.def Info: static/2-step-size-visual-right-too-big.png  used on input line 246.
+Package pdftex.def Info: static/2-step-size-visual-right-too-big.png  used on input line 245.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
-<static/2-step-size-visual-just-right.png, id=175, 407.5225pt x 386.44376pt>
+<static/2-step-size-visual-just-right.png, id=163, 407.5225pt x 386.44376pt>
 File: static/2-step-size-visual-just-right.png Graphic file (type png)
 <use static/2-step-size-visual-just-right.png>
-Package pdftex.def Info: static/2-step-size-visual-just-right.png  used on input line 252.
+Package pdftex.def Info: static/2-step-size-visual-just-right.png  used on input line 251.
 (pdftex.def)             Requested size: 150.32504pt x 142.55148pt.
 
-Overfull \hbox (57.52663pt too wide) in paragraph at lines 260--261
+Overfull \hbox (57.52663pt too wide) in paragraph at lines 259--260
 []\OT1/cmr/m/n/10.95 The op-ti-mal roots (in-verse step-sizes) are shown as the dot-ted green line at $[] = []$ 
  []
 
 
 
 [8 <./static/2-step-size-visual-center-too-big.png> <./static/2-step-size-visual-right-too-big.png> <./static/2-step-size-visual-just-right.png>]
-<static/Chebyshev-Polynomials.png, id=184, 250.9375pt x 168.63pt>
+<static/Chebyshev-Polynomials.png, id=171, 250.9375pt x 168.63pt>
 File: static/Chebyshev-Polynomials.png Graphic file (type png)
 <use static/Chebyshev-Polynomials.png>
-Package pdftex.def Info: static/Chebyshev-Polynomials.png  used on input line 277.
+Package pdftex.def Info: static/Chebyshev-Polynomials.png  used on input line 276.
 (pdftex.def)             Requested size: 281.85587pt x 189.4278pt.
 
 
 [9 <./static/Chebyshev-Polynomials.png>]
-Overfull \hbox (5.36862pt too wide) in paragraph at lines 321--322
+Overfull \hbox (5.36862pt too wide) in paragraph at lines 320--321
 [][]\OT1/cmr/m/sc/10.95 // TODO: write out the jus-ti-fi-ca-tion for this us-ing big n limit for the ``k" term.[] 
  []
 
 
 
 [10{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<static/Pasted image 20251027222540.png, id=200, 558.085pt x 392.46625pt>
+<static/Pasted image 20251027222540.png, id=187, 558.085pt x 392.46625pt>
 File: static/Pasted image 20251027222540.png Graphic file (type png)
 <use static/Pasted image 20251027222540.png>
-Package pdftex.def Info: static/Pasted image 20251027222540.png  used on input line 359.
+Package pdftex.def Info: static/Pasted image 20251027222540.png  used on input line 358.
 (pdftex.def)             Requested size: 200.0pt x 140.64696pt.
 
 
@@ -826,53 +826,49 @@ Package pdftex.def Info: static/Pasted image 20251027222540.png  used on input l
 [12]
 
 [13]
-<static/Screenshot 2025-10-30 at 4.43.11 PM.png, id=225, 938.50626pt x 576.1525pt>
+<static/Screenshot 2025-10-30 at 4.43.11 PM.png, id=212, 938.50626pt x 576.1525pt>
 File: static/Screenshot 2025-10-30 at 4.43.11 PM.png Graphic file (type png)
 <use static/Screenshot 2025-10-30 at 4.43.11 PM.png>
-Package pdftex.def Info: static/Screenshot 2025-10-30 at 4.43.11 PM.png  used on input line 463.
+Package pdftex.def Info: static/Screenshot 2025-10-30 at 4.43.11 PM.png  used on input line 472.
 (pdftex.def)             Requested size: 400.0pt x 245.56047pt.
 
 
 [14 <./static/Screenshot 2025-10-30 at 4.43.11 PM.png>]
-
-[15]
-
-[16]
-<static/nest_step_example.png, id=243, 1305.9189pt x 339.669pt>
+<static/nest_step_example.png, id=221, 1305.9189pt x 339.669pt>
 File: static/nest_step_example.png Graphic file (type png)
 <use static/nest_step_example.png>
-Package pdftex.def Info: static/nest_step_example.png  used on input line 584.
+Package pdftex.def Info: static/nest_step_example.png  used on input line 593.
 (pdftex.def)             Requested size: 328.82707pt x 85.52344pt.
-<static/vgd_nest_phb_comparison.png, id=244, 1304.4735pt x 370.0224pt>
+<static/vgd_nest_phb_comparison.png, id=222, 1304.4735pt x 370.0224pt>
 File: static/vgd_nest_phb_comparison.png Graphic file (type png)
 <use static/vgd_nest_phb_comparison.png>
-Package pdftex.def Info: static/vgd_nest_phb_comparison.png  used on input line 586.
+Package pdftex.def Info: static/vgd_nest_phb_comparison.png  used on input line 595.
 (pdftex.def)             Requested size: 328.82707pt x 93.27322pt.
 
 
-[17 <./static/nest_step_example.png> <./static/vgd_nest_phb_comparison.png>]
+[15]
 
-[18] (latex_out/course-notes.aux)
+[16 <./static/nest_step_example.png> <./static/vgd_nest_phb_comparison.png>] (latex_out/course-notes.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `course-notes.out' has not changed.
-(rerunfilecheck)             Checksum: F09DA7ECBA163940CD840F2B682D4333;3662.
+(rerunfilecheck)             Checksum: A56352B1DB62F238715EF0B0C169BE35;2955.
  ) 
 Here is how much of TeX's memory you used:
- 24089 strings out of 473190
- 442057 string characters out of 5715801
- 827472 words of memory out of 5000000
- 46868 multiletter control sequences out of 15000+600000
+ 24082 strings out of 473190
+ 441992 string characters out of 5715801
+ 826525 words of memory out of 5000000
+ 46866 multiletter control sequences out of 15000+600000
  577274 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,16n,101p,737b,616s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,16n,101p,745b,616s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on latex_out/course-notes.pdf (18 pages, 3460931 bytes).
+Output written on latex_out/course-notes.pdf (16 pages, 3453086 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
