@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1767080012.11258 "/Users/farazrahman/Developer/opt/course-notes.tex" "latex_out/course-notes.pdf" "course-notes" 1767080013.75263 0
-  "/Users/farazrahman/Developer/opt/course-notes.tex" 1767080011.91314 36835 0c02f6184edba7de5eecc5e432a796c0 ""
+["pdflatex"] 1767080780.63657 "/Users/farazrahman/Developer/opt/course-notes.tex" "latex_out/course-notes.pdf" "course-notes" 1767080782.14911 0
+  "/Users/farazrahman/Developer/opt/course-notes.tex" 1767080780.45929 36944 8fcb0a61389c73b32c1b47ecf8860575 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -220,10 +220,10 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Shorthands.sty" 1762377381.68786 10096 c8f16221b54e240924087f56a67e7e23 ""
-  "course-notes.tex" 1767080011.91314 36835 0c02f6184edba7de5eecc5e432a796c0 ""
-  "latex_out/course-notes.aux" 1767080013.65152 3631 dbf17e877ee5c75ecb18b333fd26ebe8 "pdflatex"
-  "latex_out/course-notes.out" 1767080013.6522 2955 a56352b1db62f238715ef0b0c169be35 "pdflatex"
-  "latex_out/course-notes.toc" 1767080013.65235 1416 a021d5301d3b5933fa1d36acea7865b1 "pdflatex"
+  "course-notes.tex" 1767080780.45929 36944 8fcb0a61389c73b32c1b47ecf8860575 ""
+  "latex_out/course-notes.aux" 1767080782.07048 3631 dbf17e877ee5c75ecb18b333fd26ebe8 "pdflatex"
+  "latex_out/course-notes.out" 1767080782.07123 2955 a56352b1db62f238715ef0b0c169be35 "pdflatex"
+  "latex_out/course-notes.toc" 1767080782.07139 1416 a021d5301d3b5933fa1d36acea7865b1 "pdflatex"
   "static/2-step-size-visual-center-too-big.png" 1762105371.14513 56992 a1a8620e326bcd6268b58e4690f27146 ""
   "static/2-step-size-visual-just-right.png" 1762105371.13271 54734 3f340fd51bdac73016ac7b571d13b2b7 ""
   "static/2-step-size-visual-right-too-big.png" 1762105371.14827 55771 db4f9484c9ebdcb21bd5d78734071538 ""

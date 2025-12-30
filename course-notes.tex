@@ -85,7 +85,7 @@ The simplest place to start our study is in the optimization of convex quadratic
 
 We can consider any function that can be expressed as
 \[f(\bx) = \frac{1}{2}\bx^\top\bH\bx -\bb^\top \bx + c\]
-where $\bH\succeq 0$\footnote{$\bH\succeq 0 \Leftrightarrow \bx^T\bH \bx \geq 0, \quad \forall \bx \in \mathbb{R}^m$} (necessary for $f$ to be convex) and $\bH$ is symmetric.\footnote{We can assume $\bH$ is symmetric without loss of generality because if $\bH$ is not symmetric, we can replace it with $\hat \bH = \frac{1}{2}\left(\bH + \bH^\top\right)$, which yields an equivalent function $\hat f$}
+where $\bH\succeq 0$\footnote{$\bH\succeq 0 \Leftrightarrow \bx^\top\bH \bx \geq 0, \quad \forall \bx \in \mathbb{R}^m \Leftrightarrow \bH $ is positive semidefinite (PSD) by defn. $\Leftrightarrow \bx^\top\bH\bx $ is convex.} (necessary for $f$ to be convex) and $\bH$ is symmetric.\footnote{We can assume $\bH$ is symmetric without loss of generality because if $\bH$ is not symmetric, we can replace it with $\hat \bH = \frac{1}{2}\left(\bH + \bH^\top\right)$, which yields an equivalent function $\hat f$}
 
 
 One assumption we will make is that $m\bI \preceq \bH \preceq M\bI$ where $m, M > 0$ making the $f$ $M$-smooth and $m$-strongly convex. 
